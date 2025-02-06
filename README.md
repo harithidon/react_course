@@ -1660,3 +1660,48 @@ This section contains a comprehensive set of interview questions and answers cov
     *   **A:** (List challenges: Increased complexity, communication overhead, potential performance issues.)
 
 ---
+
+---
+
+## Expanded Considerations & Best Practices
+
+This section expands on core concepts and provides practical guidance for building robust and performant React applications.
+
+### Data Flow
+
+React employs a **one-way data flow** model. Data flows from parent components to child components via **props**. Changes in child components should be communicated back to the parent, typically using **callback functions** passed as props. This unidirectional flow makes it easier to reason about and manage your application's state.
+
+**Example:**
+
+```javascript
+function ParentComponent() {
+  const [message, setMessage] = React.useState("Hello from Parent!");
+
+  const handleChildUpdate = (newMessage) => {
+    setMessage(newMessage);
+  };
+
+  return (
+    <div>
+      <p>Message from parent: {message}</p>
+      <ChildComponent message={message} onUpdate={handleChildUpdate} />
+    </div>
+  );
+}
+
+function ChildComponent({ message, onUpdate }) {
+  const [localMessage, setLocalMessage] = React.useState(message);
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    setLocalMessage(newValue);
+    onUpdate(newValue); // Communicate the change back to the parent
+  };
+
+  return (
+    <div>
+      <input type="text" value={localMessage} onChange={handleChange} />
+    </div>
+  );
+}
+
