@@ -242,7 +242,7 @@ This guide is a comprehensive roadmap for learning React, covering key concepts 
         *   **A:** Functions that allow you to use state and other React features in functional components.
 
     *   **Q: What are some common built-in Hooks?**
-        *   **A:** `useState`, `useEffect`, `useContext`, `useReducer`, `useCallback`, `useMemo`, `useRef`.
+        *   **A:** `useState`, `useEffect`, `useContext`, `useReducer`, `useCallback`, `useMemo`, `useRef`, and `useLayoutEffect`.
 
     *   **Q:  What are the rules of Hooks?**
         *   **A:** Only call Hooks at the top level of a React function.  Don't call Hooks inside loops, conditions, or nested functions. Only call Hooks from React function components or custom Hooks.
